@@ -10,4 +10,6 @@
     <string name="limpar">Limpar</string>
     <string name="error_peso">Campo peso deve ser informado</string>
     <string name="error_altura">Campo altura deve ser informado</string>
+    <string name="msg_longclick_calcular">Botão para calcular IMC</string>
+    <string name="msg_longclick_limpar">Botão para limpar a tela</string>
 </resources>

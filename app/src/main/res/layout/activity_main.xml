@@ -83,10 +83,5 @@
         app:layout_constraintTop_toTopOf="@id/btCalcular"
         android:text="@string/limpar"/>
 
-    <!--
-
-
-    -->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

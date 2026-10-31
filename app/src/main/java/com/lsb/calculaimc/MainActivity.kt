@@ -9,7 +9,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import java.text.DecimalFormat
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
@@ -45,6 +44,24 @@ class MainActivity : AppCompatActivity() {
         btLimpar.setOnClickListener {
             btLimparonClick()
         }
+
+        btCalcular.setOnLongClickListener {
+            Toast.makeText(
+                this,
+                getString(R.string.msg_longclick_calcular),
+                Toast.LENGTH_SHORT
+            ).show()
+            true
+        }
+
+        btLimpar.setOnLongClickListener {
+            Toast.makeText(
+                this,
+                getString(R.string.msg_longclick_limpar),
+                Toast.LENGTH_SHORT
+            ).show()
+            true
+        }
     }
 
     private fun btLimparonClick() {
@@ -64,9 +81,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        var resultado = 0.0
-
-        resultado = peso / altura.pow(2)
+        val resultado = peso / altura.pow(2)
 
         tvResultado.text = "%.2f".format(resultado)
     }
