@@ -86,20 +86,26 @@ class MainActivity : AppCompatActivity() {
 
         val language = Locale.getDefault().language
 
-        val resultado = if (language == "pt") {
-            peso / altura.pow(2)
-        } else {
-            703 * (peso / altura.pow(2))
-        }
+        val resultado = calculaIMC(peso, altura, language)
 
         tvResultado.text = formatterNumberFromLocale(resultado)
 
     }
 
-    private fun formatterNumberFromLocale(number: Double): String {
-        val nf = NumberFormat.getNumberInstance(Locale.getDefault())
-        val df = nf as DecimalFormat
+    companion object {
+        fun formatterNumberFromLocale(number: Double, locale: Locale = Locale.getDefault()): String {
+            val nf = NumberFormat.getNumberInstance(locale)
+            val df = nf as DecimalFormat
 
-        return df.format(number)
+            return df.format(number)
+        }
+
+        fun calculaIMC(peso: Double, altura: Double, language: String): Double {
+            if (language == "pt") {
+                return peso / altura.pow(2)
+            } else {
+                return 703 * (peso / altura.pow(2))
+            }
+        }
     }
 }
